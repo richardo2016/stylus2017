@@ -1,0 +1,148 @@
+/***
+  约定:
+    - 所有变量以美元符号开头, 标明这是变量
+  **/
+
+// Colors
+$primary-color            ?=  #2196f3
+$dark-primary-color       ?=  #1976d2
+$light-primary-color      ?=  #bbdefb
+$text-icon                ?=  #ffffff
+$accent-color             ?=  #ff5252
+$primary-text             ?=  rgba( 0, 0, 0, 0.87) // #212121
+$secondary-text           ?=  rgba( 0, 0, 0, 0.54) // #727272
+$disabled-text           ?=  rgba( 0, 0, 0, 0.38) // #727272
+
+$disabled-color           ?=  rgba( 0, 0, 0, 0.4)
+$divider-color            ?=  rgba( 0, 0, 0, 0.24) // #B6B6B6
+
+$green= rgb(30, 215, 96)
+$black-light= rgb(40, 40, 40)
+$red= #de3935
+$black= rgb(24, 24, 24)
+$grey= rgb(170, 170, 170)
+$sand= rgb(200, 200, 200)
+$white= #f9f9f9
+$white-light = lighten($white, 0.7)
+$blue= #4688d7
+$gray = #828282
+$shadow-color = #e6e6e6 // used in negative button and disabled text
+
+// Emotion
+$success                  ?=  #00C853
+$warning                  ?=  #ffd600
+$danger                   ?=  #ff5252
+
+// Link
+$normal-link = rgba(255, 255, 255, 0.8)
+$active-link = #ffffff
+
+$support-for-ie           ?=  false
+$global-quirk-model       ?=  true
+
+// Size
+$size-unit = 8px;
+$size-micro = $size-unit / 4;
+$size-offset = 3 * $size-unit;
+
+$size-sm = 150px;
+$size-md = 300px;
+$size-lg = 500px;
+
+$width-sm = 250px;
+$width-md = 360px;
+$width-lg = 490px;
+
+$bg = #eeeeee
+$bg-light = rgba($bg, 0.7)
+$ctrlBg = #fefefe
+$color = black
+$color-light = alpha($color, 0.7)
+$color-weak = alpha($color , 0.56)
+$color-disabled = alpha($color , 0.35)
+
+// Spacing
+$padding-xs  = 5px;
+$padding-sm  = 10px;
+$padding     = 15px;
+$padding-lg  = 30px;
+$padding-xl  = 60px;
+
+$margin-xs  = 5px;
+$margin-sm  = 10px;
+$margin     = 15px;
+$margin-lg  = 30px;
+$margin-xl  = 60px;
+
+// Borders
+$border-radius= 4px;
+$border-width= 1px;
+$border-color= #d7bbbb
+$border-color-active= $color;
+$border-color-weak = $color-weak;
+$border-color-disabled = $color-disabled
+
+// Font-sizes
+$x-small                = 11px;
+$small                  = 14px;
+$medium                 = 16px;
+$large                  = 20px;
+$x-large                = 24px;
+$xx-large               = 36px;
+$xxx-large              = 52px;
+
+// zIndex
+@require './variables/z-index.styl'
+
+// input-group
+$addon-required-space = 0.5em
+
+// break-point
+$screen-xl-min = 1920px
+$screen-lg-max = ($screen-xl-min - 1)
+
+// page layout variables
+$content-width = 1280px
+$top-tips-height = 8 * $size-unit
+$main-width = 1280px
+
+$headerHeight = 6 * $size-unit
+$headerHeightUnLogined = 8 * $size-unit
+$top-search-box-top = $headerHeight + $size-offset
+
+$footerHeight = 60px
+$main-header-margin-bottom = 4 * $size-unit
+$main-header-height = 4 * $size-unit
+
+// font
+$font-family = 'PingFang SC', 'Roboto', 'Noto Sans SC', caption, 'Microsoft YaHei', sans-serif
+
+// border and lines
+$box-shadow-bottom-line = inset 0 -1px 0 0 rgba(0,0,0,0.12)
+$box-shadow-right-line = inset 0 0 1px 1px rgba(0,0,0,0.12)
+$box-shadow-light = 0 2px 8px rgba(0, 0, 0, 0.33)
+$box-shadow = 0 1px 4px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.4)
+$box-shadow-hover = 0 1px 4px rgba(0,0,0,0.3), 0 5px 15px rgba(0,0,0,0.5)
+
+$inset-box-shadow-0 = inset 0 2px 10px rgba(0,0,0,0.4), inset 0 1px 4px rgba(0,0,0,0.7)
+
+$outline    = 1px solid rgba(0,0,0,0.12)
+
+// $transition
+$show-transition = opacity .15s, visibility .15s, height .15s, width .15s
+$show-transition-fast = opacity .15s, visibility .15s, height .15s, width .15s
+$show-transition-medium = opacity .4s, visibility .4s, height .4s, width .4s
+$show-transition-slow = opacity 1s, visibility 1s, height 1s, width 1s
+
+// pre-defined iteration constant
+$directions = ('top' 'left' 'bottom' 'right')
+$sizes = ('xs' 'sm' 'md' 'gd' 'lg' 'vt')
+
+$times_of_size = {
+  xs: .5
+  sm: 1
+  md: 2
+  gd: 3
+  lg: 4
+  vt: 6
+}

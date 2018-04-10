@@ -1,0 +1,16 @@
+@require '../variables'
+
+/* button */
+button()
+  padding 0 16px
+  min-width 64px
+  height 32px
+  if forbidden
+    blur 2px
+
+primary-btn(forbidden = false)
+  background $primary-color
+  &:hover
+    $dark-primary-color
+  color $text-icon
+  // +button()

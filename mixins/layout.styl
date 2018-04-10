@@ -1,0 +1,29 @@
+no-margin-v()
+  margin-top 0
+  margin-bottom 0
+
+no-margin-h()
+  margin-left 0
+  margin-right 0
+
+no-margin(force=true)
+  if force
+    no-margin-v()
+    no-margin-h()
+  else
+    margin 0
+
+no-padding-v()
+  padding-top 0
+  padding-bottom 0
+
+no-padding-h()
+  padding-left 0
+  padding-right 0
+
+no-padding(force=true)
+  if force
+    no-padding-v()
+    no-padding-h()
+  else
+    padding 0

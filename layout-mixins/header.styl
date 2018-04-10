@@ -1,0 +1,300 @@
+@require '../variables.styl'
+@require '../mixins.styl'
+
+header-style(fixed = false)
+  &
+    box-sizing border-box
+    width 100%
+    height 48px
+    padding 10px 0
+
+    if fixed
+      position fixed
+    else
+      position absolute
+    color #f9f9f9
+    display flex
+    flex-flow row wrap
+    align-items center
+    background $primary-color
+
+    &.white
+      background #fff
+
+      .logo-bar
+        > img
+          color $primary-color
+
+    & + div
+      margin-top $headerHeight
+
+    &.unlogined
+      height 8 * $size-unit
+      padding-top 16px
+      padding-bottom 16px
+
+      .logo-bar
+        height 30px
+
+      & + div
+        margin-top @height
+
+    .logo-bar
+      > img, > .logo
+        cursor pointer
+        // margin-left 52px
+        margin-right 2 * $size-unit
+        display inline-block
+        width 187px
+        // height 32px
+        float left
+
+      .signal
+        cursor pointer
+        display inline-block
+        font-weight normal
+        font-size 20px
+        color #333333
+        height 100%
+        line-height 1.6
+
+    .v-link-active
+      color $active-link !important
+
+    .header-inner
+      no-padding-v()
+      height 100%
+      margin 0 auto
+      width $content-width
+      padding 0 $size-offset
+
+      btn-color()
+        color: rgba(255, 255, 255, 0.8)
+        background transparent
+
+
+      > .top-btn, > .top-menu
+        &:first-child
+          padding-left 0
+
+      .top-menu > button, .top-btn
+        $line-height = 1.4
+        no-padding-v()
+        btn-color()
+        color $normal-link
+        line-height $line-height
+        border 0
+        font-weight normal
+        font-size 14px
+        height 100%
+        cursor pointer
+        &.active
+          font-weight 500
+
+      .user
+        text-align left
+        float right
+        height 100%
+        margin-left auto
+        display flex
+        flex-flow row wrap
+        justify-content space-between
+        align-items center
+
+        &-info
+          cursor pointer
+          &-name
+            .welcome_notation
+              margin-right 16 px
+              line-height 1.4
+          > span
+            line-height 1.4
+
+          img
+            max-width 30px
+            max-height 30px
+            border-radius 50%
+            display inline-block
+
+          &-img
+            margin-right .5em
+            img
+              max-height 400
+              max-width 400
+
+          &-name
+            text-align center
+
+        &-actions
+          @media (max-width: 650px)
+            display none
+
+          display inline-block
+
+          .btn-group
+            // background-color white
+            border-radius 0
+            border-top 0
+
+          img.avatar-img
+            min-width 30px
+            min-height 30px
+            border-radius 50%
+            display block
+            // border 1px solid
+            // background #fff
+
+          .header-avatar
+            min-width initial
+            display block
+            border none
+            border-radius 24px
+            min-width 24px
+            min-height 24px
+            padding 0
+            background-color rgba(255, 255, 255, .7)
+
+            > i
+              text-align: center
+              width 100%
+              height 100%
+              font-size $large
+              color $primary-color
+              line-height 1.2
+              &:hover
+                cursor pointer
+
+            > i[class^='ion']
+              display block
+
+          .dropdown-menu
+            left: -8.8em
+            margin-top: 1.6em
+
+            // &:before
+            //   color $pureBg
+            //   font-family "Ionicons"
+            //   content "\f365"
+            //   position absolute
+            //   top -30px
+            //   right 7px
+            //   font-size $xx-large
+
+      .page-flows
+        .flow
+          font-size $large
+          color $color
+          margin 0 $margin-sm
+
+          &:hover
+            color darken( $color , 30% )
+
+          .disabled
+            color lighten( $grey , 30% )
+            cursor not-allowed
+
+          > i
+            cursor pointer
+
+      .search
+        margin-left 1%
+        position relative
+        // line-height
+
+        >i:first-child:last-child , .icon, [class*="material-icons"]
+          position absolute
+          left 0.8em
+          line-height 2.4
+          height 100%
+          font-size 1em
+
+        input
+          padding .4em 0 .4em 2em
+          border-radius $border-radius
+          border none
+          background $ctrlBg
+          color $black
+          padding-left $padding-lg
+          outline none
+          background-repeat no-repeat
+          background-size 10%
+          background-position 5px
+
+      .dropdown-menu
+        margin-top: 0.8em
+        border-radius 2px
+        padding 0
+        border none
+
+        a
+          color $color
+          transition all 0.2s ease
+
+          &:hover
+            background none
+            transition all 0.2s ease
+
+          &.company-name
+            text-overflow ellipsis
+            max-width 11em
+            overflow hidden
+            word-break break-word
+            word-wrap break-word
+            white-space pre-line
+
+        li
+          cursor pointer
+          &:not(.divider)
+            padding $padding-xs $padding-sm
+
+          &.divider
+            margin 2px 0
+
+          margin 0
+          transition all 0.2s ease
+          &:hover
+            // background $grey
+            transition all 0.2s ease
+            a
+              color darken($color, 0.7)
+              transition all 0.2s ease
+
+      @media (max-width: 428px)
+        .page-flows
+          max-width 4em
+        .search
+          position absolute
+          margin 0 auto
+
+      @media (max-width: 650px)
+        .window-actions
+          width: 15%
+
+        .page-flows
+          width: 20%
+          margin: 0
+
+        .search
+          width: 50%
+          margin: 0
+
+          input
+            width: 100%
+            background-size: 7%
+
+        .user
+          width: 30%
+          margin-top: 0
+          justify-content: space-around
+
+          &-info
+            margin: 0 auto
+
+ie-lte8-header()
+  &
+    // background: black
+    .header-avatar
+      img.avatar-img
+        position relative
+        margin-top -($size-unit / 4)
+

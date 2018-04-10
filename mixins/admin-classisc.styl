@@ -1,0 +1,22 @@
+@require '../variables.styl'
+
+main-width()
+  max-width $content-width
+  margin-left auto
+  margin-right auto
+
+/* page layout */
+$page-main-height-offset = !$global-quirk-model ? $size-offset : 0
+page-main-height(useAbsHeight = false)
+  padding $size-offset $size-offset 0 $size-offset
+
+  min-height 'calc(100% - %s)' % ( $page-main-height-offset + $footerHeight + 1px)
+  if useAbsHeight
+    height 'calc(100% - %s)' % ( $page-main-height-offset + $footerHeight + 1px)
+
+
+page-main-height-with-top-tips(useAbsHeight = false)
+  padding $size-offset $size-offset 0 $size-offset
+  min-height 'calc(100% - %s)' % ($page-main-height-offset + $footerHeight + $top-tips-height + 1px)
+  if useAbsHeight
+    height 'calc(100% - %s)' % ($page-main-height-offset + $footerHeight + $top-tips-height + 1px)

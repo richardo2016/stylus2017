@@ -1,0 +1,23 @@
+@require '../variables.styl'
+@require '../mixins.styl'
+
+footer(useAbsolute = true, enableIe8 = true)
+  margin-top: 0
+  width: 100%
+  height: 60px
+  line-height: 60px
+  text-align: center
+  RGBA(0, 0, 0, 0.4)
+
+  .footer-inner
+    main-width()
+
+  if useAbsolute
+    position absolute
+    bottom 0
+
+  if enableIe8
+    .ie-lte8
+      .footer
+        rgb(208, 200, 200)
+        // filter: unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000)") /* IE8 hack */

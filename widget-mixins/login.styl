@@ -1,0 +1,181 @@
+@require '../variables.styl'
+@require '../mixins.styl'
+
+// just login view
+login-form-page()
+  .form-third
+    .login, .register, .reset_pwd
+      // hack self: .input-group error-hint
+      .input-group
+        .control-hint-wrapper
+          .error-hint
+            opacity 1
+    .input-group
+      display block
+
+  .form
+    min-width: 40vw
+    height 100%
+    display table
+
+  .action-switcher
+    text-align center
+    margin-bottom $margin-lg
+    color $black
+
+    .btn-group
+      display inline-block
+
+      .btn
+        color $black
+        border 1px solid currentColor
+        padding-top 1px
+        padding-bottom 1px
+
+  .logo
+    position relative
+    margin 0 auto
+    margin-bottom 14px
+    display block
+
+    width 76px
+    height 76px
+    padding 19px 18px
+    border-radius 50%
+    background $primary-color
+
+  .logo-name
+      margin 0 auto
+      font-size 20px
+      line-height 1.1
+      max-width 7em
+      text-align center
+
+  .main-title
+    text-align center
+    font-size 18px
+    width 8em
+    font-weight normal
+    color rgba(#000000, .5)
+    margin-top 5 * $size-unit
+    margin-bottom 2 * $size-unit
+    margin-left auto
+    margin-right auto
+    padding-top 0
+    & + .form
+      padding 0 $padding
+
+  .image-wrapper
+    text-align center
+    margin 0 auto
+    margin-bottom $margin-xs
+
+    img
+      display block
+      margin 0 auto
+      max-height 180px
+      width auto
+      border-radius 4px
+
+      &.shadow
+        -webkit-box-reflect below 0 -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 30%,rgba(250,250,250,0.3))
+        position absolute
+        transform rotateX(96deg)
+        opacity .3
+        height: 100%
+        width: 50%
+        top: 50%
+        left: 25%
+
+  $input-box-height = 40px
+
+  .direct-btn-groups
+    padding 0 $padding-lg
+    width 320px
+    margin 0 auto
+    box-sizing content-box
+
+    .text-helper
+      margin-top 5 * $size-unit
+
+    .input-group
+      margin-bottom $size-unit
+
+      input.form-control
+        opacity: 0.8
+        border-radius: 2px
+        background-color: #ffffff
+        border: 1px solid rgba(0, 0, 0, 0.2)
+
+    .form-control
+      height: $input-box-height
+      background transparent
+
+    button , .btn
+      display block
+      font-size 1.2em
+      width 100%
+      text-shadow none
+      background-image none
+      height 48px
+
+      &:not([class*="action-"])
+        color $black
+        background-color transparent
+        padding $padding-sm $padding
+        border-radius $padding-lg
+        border 1px solid $black-light
+
+  .input-group
+    width: 100%
+    input.form-control
+      & + .control-right-txt,
+      ../ .control-right-txt
+        line-height: $input-box-height
+
+    &.control-right-space
+      // padding-right 3.2 * $padding-lg
+      &:hover
+        & + .forget-pwd
+          display block
+
+        &:hover, &:focus, &:active
+          & + .forget-pwd
+            display block
+
+    .error-hint
+      &, > .error-flag, > i[class^="material-icons"]
+        line-height $input-box-height
+
+  input.form-control, .control-hint-wrapper
+    $button-width = 100px
+    &.before-btn
+      width 'calc(100% - %s - 6px)' % $button-width
+      margin-right 6px
+
+      & + button, & + .action-btn
+        width $button-width
+        padding-left 8px
+        padding-right 8px
+        height 40px
+        font-size 14px
+
+        &.disabled
+          background-color #bab0b0
+
+
+  .input-group-addon
+    &.icon
+      width 32px
+      height 20px
+      box-sizing content-box
+      > i, [class^="material-icons"]
+        width 32px
+
+  .text-helper
+    text-align center
+    color rgba(0, 0, 0, 0.5)
+
+  .txt-btn
+    display inline-block
+    color $primary-color

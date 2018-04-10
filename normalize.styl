@@ -1,0 +1,72 @@
+@require './variables'
+@require './mixins'
+
+:root
+  font-size 14px
+
+body
+  background white
+  color $color
+  font-family: 'PingFang SC', 'Roboto', 'Noto Sans SC', caption, 'Microsoft YaHei', sans-serif // 字型
+  text-align: justify // 左右齐行
+  line-height: 1.7 // 默认行高（最佳中文行高 1.5~2）
+
+.h1
+  font-size: 36px
+.h2
+  font-size: $x-small
+  text-transform: uppercase
+  letter-spacing: 1px
+  margin-bottom: $margin-xs
+.red
+  color: #fc615c
+  &:hover
+    color: darken( #fc615c , 10% )
+.yellow
+  color: #fdbe41
+  &:hover
+    color: darken( #fdbe41 , 10% )
+.green
+  color: #34c94a
+  &:hover
+    color: darken( #34c94a , 10% )
+
+button
+  border-radius: $border-radius
+  border: none
+  padding: $padding-xs $padding
+  text-transform: uppercase
+  letter-spacing: 1px
+  font-size: $x-small
+  outline: none
+
+  &:hover
+    cursor: pointer
+.button-dark
+  background: $green
+  color: $white
+  border: 1px solid $green
+
+  &:hover
+    background: lighten( $green, 10% )
+.button-light
+  background: none
+  color: $sand
+  border: 1px solid $sand
+
+  &:hover
+    border-color: $color
+    color: $color
+
+.section-title
+  text-transform: uppercase
+  color: $grey
+  letter-spacing: 1.25px
+  font-size: $x-small * 1.2
+  margin-bottom: $margin-sm
+
+input, textarea
+  outline none
+  background none
+  resize none
+

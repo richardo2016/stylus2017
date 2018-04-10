@@ -1,0 +1,116 @@
+@require '../variables'
+@require '../mixins'
+/**
+ *
+ *  get the utility class such as
+ *   .mr-xs
+ *     margin-right ($size-unit / 2)
+ *   .mr-sm
+ *     margin-right $size-unit
+ *   .ml-xs
+ *     margin-left ($size-unit / 2)
+ *   .ml-sm
+ *     margin-left $size-unit
+ */
+for name in ('margin' 'padding')
+  prefixer = substr(name, 0, 1)
+  for direction in $directions
+    dprefixer = substr(direction, 0, 1)
+    .{prefixer}{dprefixer}-xs
+      {name}-{direction} ($size-unit / 2)
+
+    .{prefixer}{dprefixer}-sm
+      {name}-{direction} $size-unit
+
+    .{prefixer}{dprefixer}-md
+      {name}-{direction} ($size-unit * 2)
+
+    // grande
+    .{prefixer}{dprefixer}-gd
+      {name}-{direction} ($size-unit * 3)
+
+    .{prefixer}{dprefixer}-lg
+      {name}-{direction} ($size-unit * 4)
+
+    // venti
+    .{prefixer}{dprefixer}-vt
+      {name}-{direction} ($size-unit * 6)
+
+    .no-{prefixer}{dprefixer}
+      {name}-{direction} 0
+/**
+ *
+ *  get the utility class such as
+ *   .no-margin-right
+ *     margin-right 0
+ *   .no-padding-top
+ *     padding-top 0
+ */
+for direction in $directions
+  .no-margin-{direction}
+    margin-{direction} 0 !important
+  .no-padding-{direction}
+    padding-{direction} 0 !important
+
+/**
+ */
+ut_gen_dir(name, size, dir)
+  if dir is 'v'
+    {name}-top size
+    {name}-bottom size
+  if dir is 'h'
+    {name}-left size
+    {name}-right size
+
+for name in ('margin' 'padding')
+  for size, time in $times_of_size
+    .{name}-v-{size}
+      ut_gen_dir(name, $size-unit * time, 'v')
+    .{name}-h-{size}
+      ut_gen_dir(name, $size-unit * time, 'h')
+
+    .{name}-{size}
+      {name} $size-unit * time
+
+for number in 1...9
+  .lh1_{number}
+    line-height (1 + number * 0.1)
+
+  .em{number}
+    font-size number * 1em
+
+  .w-em{number}
+    width number * 1em
+
+  .mw-min{number}
+    min-width number * 1em
+
+// utility classes
+.v-xl
+  height 860px
+  overflow hidden
+
+.v-large
+  min-height 540px
+
+.v-medium
+  min-height 480px
+
+.v-small
+  min-height 360px
+
+.h-xl
+  width 860px
+  overflow hidden
+
+.h-large
+  max-width 540px
+
+.h-medium
+  max-width 480px
+
+.h-small
+  max-width 360px
+
+.lh-4
+  line-height 4 * $size-unit !important

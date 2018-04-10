@@ -1,0 +1,263 @@
+@require '../variables'
+@require '../mixins'
+
+$statics-table-header-height = 48px
+$statics-table-row-height = 40px
+$statics-table-row-count = 11
+$statics-table-footer-height = 48px
+
+table-header-text()
+  font-size 13px
+  line-height $statics-table-header-height
+  color $secondary-text
+
+footer-box-wrapper()
+  overflow-y hidden
+  color $secondary-text
+  background-color #ffffff
+  padding 0 $size-offset
+
+list-table()
+  mainColor = white
+  background-color mainColor
+
+  td, th
+    ul.cell-list
+      &, li
+        list-style none
+
+    .cell-list
+      padding-left 0
+
+  > table
+    background mainColor
+    margin-bottom 0
+
+    tr
+      th, td
+        padding 10px ($size-offset / 2)
+        font-weight normal
+        vertical-align middle
+        box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.12)
+        border-top-width: 0
+        border-bottom 0
+
+        .util-icon-btn
+          cursor pointer
+
+      &.showing
+        background #e1e1e1
+
+
+    > thead
+      > tr
+        height $statics-table-header-height
+        table-header-text()
+        > th
+          height $statics-table-header-height
+
+          .util-icon-btn
+            margin-left ($size-unit / 2)
+
+            & + .dropdown-list
+              $width = $size-unit * 16
+              position absolute
+              padding-left 0
+              width $width
+              box-shadow $box-shadow
+              margin-left -($width / 4)
+              display none // default closed
+
+              > li
+                $item-height = $size-offset
+                width 100%
+                outline $outline
+                box-shadow $box-shadow
+                background-color white
+                list-style none
+                text-indent ($width / 4)
+                padding $size-unit 0
+                line-height $item-height
+
+              &.selectable
+                > li
+                  cursor pointer
+                  color black
+                  &:hover
+                    background-color #eee
+                    // color white
+    > tbody
+      &.clickable
+        tr
+          cursor pointer
+
+      > tr > td
+        height $statics-table-row-height
+        font-size: 13px
+        color: rgba(0,0,0, .87)
+        line-height: 1.5
+
+    > tfoot
+      > tr > td
+        .pagination-input-group.inline
+          .form-control.goToPage + .goToPageBtn
+            position relative
+            top: -1px
+
+    > thead
+      > tr > td
+        .pagination-input-group.inline
+          .form-control.goToPage + .goToPageBtn
+            position relative
+            top: -2px
+  &-footer
+    &-tool-box
+      vertical-align: middle
+      display: table-cell
+      line-height: $statics-table-footer-height
+
+  &.hide-cell-3
+    tr
+      > th, > td
+        &:nth-child(n+3)
+          color transparent
+
+  &.not-full-height
+    .list-table-pagination
+      position absolute
+      bottom 32px
+      box-shadow inset 0 1px 0 0 rgba(0,0,0,0.12)
+
+  &.medium
+    > thead > tr > th
+        height ($statics-table-header-height / 2)
+    > tbody > tr > td
+      height ($statics-table-row-height / 2)
+      line-height: 1.5
+
+    > tfoot > tr> td
+      height ($statics-table-footer-height * 2 / 3)
+
+  &.small
+    > thead > tr > th
+      height ($statics-table-header-height / 3)
+
+    > tbody > tr > td
+      height ($statics-table-row-height / 3)
+      line-height: 1.5
+
+    > tfoot > tr > td
+      height ($statics-table-footer-height / 3)
+
+list-table-pagination-size($height = 48)
+  $line-height = $height
+
+  .list-table-pagination
+    height $height
+
+    &-info
+      line-height $line-height
+
+    &-component
+      ul.pagination
+        line-height $line-height
+        li a, li a > i
+          line-height $line-height
+
+      > nav
+        height 100%
+
+list-table-pagination($height = $statics-table-footer-height)
+  .list-table-pagination
+    footer-box-wrapper()
+
+    .pagination-input-group
+      $input-height = ($height / 2)
+      // padding ($size-offset / 2) 0
+      margin-left $size-unit
+      box-sizing border-box
+      // max-height $input-height
+
+      > input, .btn, .form-control
+        height $input-height
+        line-height $input-height
+
+      > input
+        &.goToPage
+          text-align center
+          padding 0 ($size-unit / 2)
+
+      &.inline
+        display inline-block
+
+        > input, .btn, .form-control
+          display: inline-block
+
+    &.nothing
+      .list-table-pagination-inner
+        float: none
+        text-align: center
+      .list-table-pagination-info
+        width 100%
+
+    &-v-wrapper
+      height $height
+      vertical-align middle
+      line-height $height
+
+    &-inner
+      float right
+      height: 100%
+      > div:first-child
+        float left
+        margin-right: (2 * $size-unit)
+
+    &-component
+      float right
+      height: 100%
+
+      ul.pagination
+        margin 0
+        height 48px
+
+        > li
+          min-width $size-offset
+          cursor pointer
+          float: left
+          &:hover
+            background-color #eef
+
+          & + li:last-child
+            > a
+              padding-left ($size-offset / 4)
+              padding-right 0
+
+          &:first-child
+            > a
+              padding-right ($size-offset / 4)
+
+          > a
+            text-align center
+            width: 100%
+            display inline-block
+            border-width 0
+            float initial
+            height $height
+            color $secondary-text
+            background-color initial
+            padding 0
+
+          &.disabled
+            &, a
+              color $disabled-text
+      > nav
+        height 100%
+
+// TODO: use list-table() insteadof .list-table directly
+list-table-mixin()
+  list-table()
+  list-table-pagination()
+  list-table-pagination-size(48px)
+  &.medium
+    list-table-pagination-size(32px)
+

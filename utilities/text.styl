@@ -1,0 +1,77 @@
+@require '../variables'
+@require '../mixins'
+
+.icon-btn
+  cursor pointer
+
+// text
+.text-primary
+  color $primary-color
+
+.text-accent
+  color $accent-color
+
+.text-success
+  color $success
+
+.text-warning
+  color $warning
+
+.text-danger
+  color $danger
+
+.text-center
+  text-align center
+
+.txt-btn
+  // display block
+  cursor pointer
+  &:hover
+    text-decoration underline
+
+  &.shaped
+    padding ($size-unit / 4) ($size-unit / 2)
+
+    &.medium
+      padding ($size-unit / 2) ($size-unit)
+
+    &.large
+      padding ($size-unit / 2) ($size-unit * 1.5)
+
+    &.radius
+      border-radius 2px
+
+  &-default
+    background $grey
+    color white
+
+  &-primary
+    background $primary-color
+    color white
+
+  &-accent
+    background $accent-color
+    color white
+
+  &-success
+    background $success
+    color white
+
+  &-warning
+    background $warning
+    color white
+
+  &-danger
+    background $danger
+    color white
+
+  > .icon-btn
+    & + span
+      margin-left .5em
+
+.txt-btn-group
+  &.pos-right
+    display inline-block
+
+.txt-center
+  text-align center

@@ -1,0 +1,16 @@
+/* colors */
+RGBA(r, g, b, alpha, supportIE8 = true)
+  if supportIE8
+    color lighten(rgb(r, g, b), alpha)
+  color rgba(r, g, b, alpha)
+
+/* opacity */
+back-opacity(color, opacity=0.5)
+  background color
+  filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + (opacity*100) +')')
+  background rgba(color, .7)
+
+/* emotions */
+accent()
+  background-color $accent-color
+  color white

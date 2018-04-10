@@ -1,0 +1,19 @@
+{
+  "name": "@richardo2016/stylus2017",
+  "version": "0.0.1-alpha",
+  "description": "richardo's stylus in 2017",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/richardo2016/stylus2017.git"
+  },
+  "author": "richardo2016 <richardo2016@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richardo2016/stylus2017/issues"
+  },
+  "homepage": "https://github.com/richardo2016/stylus2017#readme"
+}

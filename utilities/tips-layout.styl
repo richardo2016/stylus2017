@@ -1,0 +1,33 @@
+@require './variables'
+@require './mixins'
+// tips
+.icon-tips
+  & + .icon-tips-panel
+    transition $show-transition
+    display none
+    visibility hidden
+    opacity 0
+
+  &:hover + .icon-tips-panel,
+  & + .icon-tips-panel:hover,
+  &-wrapper:hover > .icon-tips-panel
+    transition $show-transition
+    display block
+    visibility visible
+    opacity 1
+
+  &-panel
+    background black
+    color white
+    padding ($size-unit / 2) $size-unit
+    position absolute
+    border-radius ($size-unit / 2)
+
+    &.right-center
+      top -0.3em
+      right -10.5em
+
+  &-wrapper
+    z-index $layer19
+    position relative
+    // overflow-y visible
